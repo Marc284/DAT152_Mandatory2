@@ -1,5 +1,8 @@
+"use strict";
 class UIHandler {
         constructor() {
+
+            // Create basic html table with header
             this.tbl = document.createElement('table');
             this.memberList = [];
             this.memberIds = [];
@@ -13,6 +16,13 @@ class UIHandler {
             var cell4 = headerRow.insertCell(-1);
             var cell5 = headerRow.insertCell(-1);
             document.body.appendChild(this.tbl)
+
+            //Create add member button
+            this.addBtn = document.createElement('button');
+            var t = document.createTextNode("Add Member"); 
+            this.addBtn.appendChild(t); 
+            this.addBtn.setAttribute('id', 'addMember');
+            document.body.appendChild(this.addBtn);
         }
 
         get length() {return this.tbl.length;}
