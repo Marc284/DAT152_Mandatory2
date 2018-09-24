@@ -15,11 +15,11 @@ class UIHandler {
             document.body.appendChild(this.tbl)
         }
 
-        get length() {return this.memberList.length;}
+        get length() {return this.tbl.length;}
 
 
         deleteMember(memberId){
-            this.memberlist.deleteRow(memberId - 1)
+            this.tbl.deleteRow(memberId)
         }
 
         editMember(memberId,memberEdit){        
@@ -48,11 +48,16 @@ class UIHandler {
             let editBtn = document.createElement('input');
             editBtn.type ="button";
             editBtn.value ="Edit";
+            editBtn.onclick = function(){alert("EDIT")}
             row.appendChild(editBtn);
 
             let deleteBtn = document.createElement('input')
             deleteBtn.type = "button";
             deleteBtn.value = "Delete"
+            deleteBtn.onclick = function(){
+                var y = this.parentElement.rowIndex;
+                ui.deleteMember(y);
+            }
             row.appendChild(deleteBtn);
         }
         else console.log("Id already used"); 
