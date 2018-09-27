@@ -1,8 +1,6 @@
 "use strict";
     const ui = new UIHandler()
-    ui.addMember({'firstname' : 'Ole', 'lastname' : 'Olsen', 'address' : 'Olsenbakken', 'phone' : '91826453', 'memberid':'18'})
-    ui.addMember({'firstname' : 'Anne', 'lastname' : 'Annesen', 'address' : 'Annesvingen', 'phone' : '87655458', 'memberid':'21'})
-    // ui.addMember({'firstname' : 'Dif', 'lastname' : 'Annesen', 'address' : 'Annesvingen', 'phone' : '87655458', 'memberid':'21'})
+
 
     const mod = new Modal();
     document.getElementById("addMember").addEventListener("click", function(){
@@ -22,4 +20,22 @@
             console.log("Submit")
         });
 
-});
+    });
+
+    function loadMembers(m) {
+        let data = JSON.parse(m)
+        console.log(data.newMembers)
+        data.newMembers.map((member)=> ui.addMember(member))
+    }
+
+    function getUpdates(e) {
+        let url = config.servicesPath + "/updates"
+        const ajax = new AJAXConnection(url)
+        ajax.onsuccess = loadMembers
+        ajax.get([-1])
+    }
+
+    getUpdates()
+    
+    
+    

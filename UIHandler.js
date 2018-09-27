@@ -45,7 +45,7 @@ class UIHandler {
     
 
         addMember(member) {
-        var included = this.memberIds.includes(member.memberid);
+        var included = this.memberIds.includes(member.memberId);
         if(!included) {
             this.memberList.push(member);
             this.memberIds.push(member.memberid);
