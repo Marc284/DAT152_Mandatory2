@@ -9,7 +9,15 @@
     });
 
     function callAddMember() {
-        ui.addMember({'firstname' : document.getElementById("firstname").value, 'lastname' : document.getElementById("lastname").value, 'address' : document.getElementById("address").value, 'phone' : document.getElementById("phone").value});
+        console.log(ui.memberIds)
+        let member = {  'firstname' : document.getElementById("firstname").value,
+                        'lastname' : document.getElementById("lastname").value, 
+                        'address' : document.getElementById("address").value,
+                        'phone' : document.getElementById("phone").value,
+                        'memberId': ui.nextId
+                    }
+        ui.addMember(member);
+        addMemberServer(member);
         mod.closeModal();
     }
 
@@ -22,9 +30,16 @@
 
     });
 
+    function addMemberServer(member) {
+        let url = config.servicesPath + "/member";
+        const ajax = new AJAXConnection(url)
+        ajax.post(null,member)
+    }
+    
+
+
     function loadMembers(m) {
         let data = JSON.parse(m)
-        console.log(data.newMembers)
         data.newMembers.map((member)=> ui.addMember(member))
     }
 

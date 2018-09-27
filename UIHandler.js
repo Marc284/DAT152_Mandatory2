@@ -17,6 +17,8 @@ class UIHandler {
             var cell5 = headerRow.insertCell(-1);
             document.body.appendChild(this.tbl)
 
+            this.nextId = 1;
+
             //Create add member button
             this.addBtn = document.createElement('button');
             var t = document.createTextNode("Add Member"); 
@@ -69,6 +71,7 @@ class UIHandler {
                 ui.deleteMember(y);
             }
             row.appendChild(deleteBtn);
+            this.nextIds++
         }
         else console.log("Id already used"); 
         }
