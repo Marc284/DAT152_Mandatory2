@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Demo of server side application</title>
+<style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        </style>
+</head>
+<body>
+
+        <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content" id="modal-content">
+                  <span class="close">&times;</span>
+
+                  <form id="form">
+                        First name:<br>
+                    <input type="text" name="firstname" id="firstname">
+                    <br>
+                    Last name:<br>
+                    <input type="text" name="lastname" id="lastname">
+                    <br>
+                    Address:<br>
+                    <input type="text" name="address" id="address">
+                    <br>
+                    Phone:<br>
+                    <input type="number" name="phone" id="phone">
+                    <br><br>
+                      </form>
+                      <!-- <button id="callAddMember">Submit</button>  -->
+
+                  
+                </div>
+              
+              </div>
+              
+
+
+<script src="script/config.js" type="text/javascript"></script>
+<script src="script/ajax/ajax.js" type="text/javascript"></script>
+<script src="script/Modal.js" type="text/javascript"></script>
+<script src="script/UIHandler.js" type="text/javascript"></script>
+<script src="script/script.js" type="text/javascript"></script>
+
+</body>
+</html>

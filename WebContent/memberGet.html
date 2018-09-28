@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mservices, getMember</title>
+</head>
+<body>
+<h1>get /member/{memberId}</h1>
+<form>
+<p>Value of memberId:
+<input type="text" size="3" value="" id="memberId"/></p>
+<p><button type="button" id="getMember">Get member</button></p>
+</form>
+
+<p>Result:</p>
+<div id="answer"></div>
+
+<p class="valid">
+[<a href="http://validator.w3.org/check/referer">HTML</a>][<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>]
+</p>
+
+<script src="script/config.js"></script>
+<script src="script/ajax/ajax.js"></script>
+<script>
+"use strict";
+
+{
+    var memberIdElm = null
+
+    function load() {
+  	document.getElementById("getMember").addEventListener("click",getMember,false)
+  	memberIdElm = document.getElementById("memberId")
+    }
+
+    function viewMessage(m) {
+        document.getElementById("answer").textContent=m
+    }
+
+    function getMember(e) {
+        let url = config.servicesPath + "/member"
+        const ajax = new AJAXConnection(url)
+        ajax.onsuccess = viewMessage
+	    ajax.get([memberIdElm.value])
+    }
+
+    window.addEventListener("DOMContentLoaded",load,true)
+}
+</script>
+
+</body>
+</html>
