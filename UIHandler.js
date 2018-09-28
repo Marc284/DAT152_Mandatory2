@@ -30,8 +30,9 @@ class UIHandler {
         get length() {return this.tbl.length;}
 
 
-        deleteMember(memberId){
+        deleteMember(memberId){            
             this.tbl.deleteRow(memberId)
+            deleteMemberServer(memberId)
         }
 
         editMember(memberId,memberEdit){        

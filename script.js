@@ -35,8 +35,12 @@
         const ajax = new AJAXConnection(url)
         ajax.post(null,member)
     }
-    
 
+    function deleteMemberServer(memberId){
+            let url = config.servicesPath + "/member"
+            const ajax = new AJAXConnection(url)
+            ajax.del([memberId])        
+    }
 
     function loadMembers(m) {
         let data = JSON.parse(m)
